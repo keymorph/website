@@ -9,12 +9,11 @@ module.exports = {
       // Need to define a global color scheme for all apps
       primary: "#C7BCF6",
       secondary: "#413A7E",
-      white: "#ffffff",
       background: {
-        dark: "#0d0e16"
-      }
+        dark: "#0D0E16",
+      },
     },
-  extend: {},
+    extend: {},
   },
   plugins: [],
 };
