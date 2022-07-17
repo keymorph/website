@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div
       className={
-        "flex flex-col justify-between bg-background-darker text-text-primary h-screen w-screen select-none"
+        "flex flex-col justify-between text-text-primary h-screen w-screen select-none"
       }
     >
       <section className="flex sm:flex-col xl:flex-row justify-between gap-24 overflow-x-hidden h-full">
