@@ -6,7 +6,7 @@ export const spring = {
 export const springShort = {
   type: "spring",
   bounce: 0.3,
-  duration: 0.3,
+  duration: 0.4,
 };
 export const dragSpring = {
   bounceStiffness: 500,
