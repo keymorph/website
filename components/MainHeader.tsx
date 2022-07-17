@@ -3,7 +3,7 @@ import { spring } from "../styles/transitions";
 
 export default function MainHeader() {
   return (
-    <div className="p-8">
+    <section className="p-8">
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         transition={spring}
@@ -33,6 +33,6 @@ export default function MainHeader() {
           .
         </h5>
       </motion.div>
-    </div>
+    </section>
   );
 }

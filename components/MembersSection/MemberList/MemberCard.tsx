@@ -1,10 +1,10 @@
-import Card from "./Card";
+import Card from "../../SharedComponents/Card";
 import Image from "next/image";
-import Website from "../Icons/Website";
-import Linkedin from "../Icons/Linkedin";
-import Github from "../Icons/Github";
+import Website from "../../Icons/Website";
+import Linkedin from "../../Icons/Linkedin";
+import Github from "../../Icons/Github";
 import { motion } from "framer-motion";
-import { dragSpring, spring } from "../../styles/transitions";
+import { dragSpring, spring } from "../../../styles/transitions";
 import { useState } from "react";
 
 interface Props {
@@ -14,6 +14,8 @@ interface Props {
   websiteURL: string;
   githubURL: string;
   linkedinURL: string;
+  alreadyDragging: boolean;
+  setAlreadyDragging: (value: boolean) => void;
 }
 
 export default function MemberCard({
@@ -23,8 +25,10 @@ export default function MemberCard({
   websiteURL,
   githubURL,
   linkedinURL,
+  alreadyDragging,
+  setAlreadyDragging,
 }: Props) {
-  const [zIndex, setZIndex] = useState(0);
+  const [draggingCard, setDraggingCard] = useState(false);
 
   const clickableLinks = [websiteURL, githubURL, linkedinURL];
   const clickableLinkClassName =
@@ -32,25 +36,33 @@ export default function MemberCard({
 
   return (
     <motion.div
-      drag
+      drag={!alreadyDragging || draggingCard}
       dragSnapToOrigin
       dragTransition={dragSpring}
-      layout
+      layout={!draggingCard} // Only do layout animations when not dragging
       transition={spring}
       whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 1 }}
       initial={{ opacity: 0, y: -100 }}
       animate={{
         opacity: 1,
-        zIndex: zIndex,
+        zIndex: draggingCard ? 1 : 0,
         y: 0,
-        transition: { ...spring, delay: index * 0.05 },
+        transition: { ...spring, delay: 0.4 + index * 0.05 }, // Added 0.4 offset to wait for the previous page sections to transition
       }}
-      onDragStart={() => setZIndex(1)}
-      onDragTransitionEnd={() => setZIndex(0)}
+      onDragStart={() => {
+        setAlreadyDragging(true);
+        setDraggingCard(true);
+      }}
+      onDragEnd={() => {
+        setDraggingCard(false);
+      }}
+      onDragTransitionEnd={() => {
+        setAlreadyDragging(false);
+      }}
     >
       <Card
         className={
-          "w-80 bg-background-dark-transparent overflow-hidden shadow-strong"
+          "w-80 bg-background-dark-transparent overflow-hidden shadow-strong select-none"
         }
       >
         <div

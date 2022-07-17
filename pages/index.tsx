@@ -1,17 +1,23 @@
 import MainHeader from "../components/MainHeader";
 import Footer from "../components/Footer";
-import MembersSection from "../components/MembersSection";
 import ProjectsSection from "../components/ProjectsSection";
+import MembersSection from "../components/MembersSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-row justify-between text-text-primary h-screen w-screen overflow-x-hidden">
-      <div className="flex flex-col justify-between">
-        <MainHeader />
-        <MembersSection />
-        <Footer />
-      </div>
-      <ProjectsSection />
+    <div
+      className={
+        "flex flex-col justify-between text-text-primary h-screen w-screen select-none"
+      }
+    >
+      <section className="flex sm:flex-col xl:flex-row justify-between gap-24 overflow-x-hidden h-full">
+        <section className="flex flex-col">
+          <MainHeader />
+          <MembersSection />
+        </section>
+        <ProjectsSection />
+      </section>
+      <Footer />
     </div>
   );
 }

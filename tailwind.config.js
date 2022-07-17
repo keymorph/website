@@ -6,10 +6,11 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: "480px",
-      md: "768px",
-      lg: "976px",
-      xl: "1440px",
+      sm: "320px",
+      md: "720px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
     colors: {
       // Need to define a global color scheme for all apps
@@ -20,8 +21,8 @@ module.exports = {
       success: "#8CEA94",
       background: {
         darker: "#0D0E16",
-        dark: "#2A2D47",
-        "dark-transparent": "#2A2D47CC",
+        dark: "#22253A",
+        "dark-transparent": "#22253ACC",
         "darkish-transparent": "#393d60CC",
       },
       text: {
