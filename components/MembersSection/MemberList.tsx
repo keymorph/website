@@ -1,4 +1,4 @@
-import MemberCard from "./Cards/MemberCard";
+import MemberCard from "../Cards/MemberCard";
 
 export default function MemberList() {
   // Sort MemberCard by first letter
@@ -62,7 +62,7 @@ export default function MemberList() {
   ];
 
   return (
-    <div className="flex flex-row gap-10 flex-wrap">
+    <div className="flex flex-row gap-10 flex-wrap justify-center">
       {members.map((member, index) => (
         <MemberCard
           key={index}

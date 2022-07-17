@@ -35,6 +35,7 @@ export default function MemberCard({
       drag
       dragSnapToOrigin
       dragTransition={dragSpring}
+      layout
       transition={spring}
       whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 1 }}
       initial={{ opacity: 0, y: -100 }}
