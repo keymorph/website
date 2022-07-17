@@ -15,6 +15,7 @@ interface Props {
   projectName: string;
   projectURL: string;
   imageURL: string;
+  description: string;
   technologies: string[];
   direction: number;
   current: number;
@@ -26,6 +27,7 @@ export default function ProjectCard({
   projectName,
   projectURL,
   imageURL,
+  description,
   technologies,
   direction,
   current,
@@ -45,7 +47,7 @@ export default function ProjectCard({
         y: 0,
         transition: {
           ...spring,
-          delay: (direction > 0 ? 0.4 : 0.1) + index * 0.05,
+          delay: (direction > 0 ? 0.3 : 0) + index * 0.05,
         },
       }}
       className={
@@ -57,7 +59,7 @@ export default function ProjectCard({
   ));
 
   return (
-    <AnimatePresence initial={false} custom={direction} exitBeforeEnter>
+    <AnimatePresence custom={direction} exitBeforeEnter>
       <motion.div
         // By passing an absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
         // detect it as an entirely new image.
@@ -78,7 +80,7 @@ export default function ProjectCard({
             initial={"hidden"}
             animate={"visible"}
             custom={{
-              offset: direction > 0 ? 0.1 : 0.4,
+              offset: direction > 0 ? 0 : 0.3,
               direction,
             }}
             variants={slideDownVariants}
@@ -95,7 +97,7 @@ export default function ProjectCard({
             initial={"hidden"}
             animate={"visible"}
             custom={{
-              offset: direction > 0 ? 0.2 : 0.3,
+              offset: direction > 0 ? 0.1 : 0.2,
               direction,
             }}
             variants={slideDownVariants}
@@ -106,29 +108,26 @@ export default function ProjectCard({
               alt={"Note taking web application"}
               layout={"fill"}
               objectFit={"contain"}
-              className={"pointer-events-none"}
               priority
+              className={"pointer-events-none"}
             />
           </motion.div>
           <motion.div
             initial={"hidden"}
             animate={"visible"}
             custom={{
-              offset: direction > 0 ? 0.3 : 0.2,
+              offset: direction > 0 ? 0.2 : 0.1,
               direction,
             }}
             variants={slideDownVariants}
             className={"flex flex-row gap-4 p-4"}
           >
             <Info className={"fill-text-primary"} />
-            <p className={"text-xl"}>
-              A simple web application for taking and organizing notes with
-              customized categories.
-            </p>
+            <p className={"text-xl"}>{description}</p>
           </motion.div>
           <div
             className={
-              "flex flex-row gap-4 flex-wrap px-12 pb-4 justify-center"
+              "flex flex-row gap-4 flex-wrap px-8 pb-4 pt-2 justify-center"
             }
           >
             {technologiesChips}

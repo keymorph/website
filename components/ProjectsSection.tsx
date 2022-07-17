@@ -10,6 +10,8 @@ const projects = [
     projectName: "Notes",
     projectURL: "https://jotfoxdev.vercel.app",
     imageURL: "/images/project-jotfox.png",
+    description:
+      "A simple web application for taking and organizing notes with customized categories.",
     technologies: [
       "NextJS",
       "CosmosDB",
@@ -23,6 +25,7 @@ const projects = [
     projectName: "Homepage",
     projectURL: "https://example.com",
     imageURL: "/images/project-homepage.png",
+    description: "Our homepage for showcasing members and projects.",
     technologies: ["NextJS", "Vercel", "TailwindCSS", "Framer Motion"],
   },
 ];
@@ -31,8 +34,6 @@ export default function ProjectsSection() {
   const [[current, direction], setCurrent] = useState([0, 1]);
 
   const projectIndex = wrap(0, projects.length, current);
-
-  console.log("direction", direction);
 
   return (
     <motion.section
@@ -50,6 +51,7 @@ export default function ProjectsSection() {
         projectName={projects[projectIndex].projectName}
         projectURL={projects[projectIndex].projectURL}
         imageURL={projects[projectIndex].imageURL}
+        description={projects[projectIndex].description}
         technologies={projects[projectIndex].technologies}
         direction={direction}
         current={current}
