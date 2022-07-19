@@ -33,7 +33,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        strong: "0rem 2rem 2rem rgba(0, 0, 0, 0.6)",
+        strong: "0rem 1.2rem 1.2rem rgba(0, 0, 0, 0.6)",
       },
     },
   },

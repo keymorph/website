@@ -7,7 +7,7 @@ import Image from "next/image";
 import PrevNextControls from "./ProjectCard/PrevNextControls";
 import {
   projectCardPrevNextVariants,
-  slideDownVariants,
+  slideDirectionalVariants,
 } from "../../styles/variants";
 
 interface Props {
@@ -33,30 +33,32 @@ export default function ProjectCard({
   current,
   setCurrent,
 }: Props) {
-  const technologiesChips = technologies.map((technology, index) => (
-    <motion.div
-      key={index}
-      drag
-      dragSnapToOrigin
-      dragTransition={dragSpring}
-      whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 1 }}
-      transition={spring}
-      initial={{ opacity: 0, y: direction > 0 ? -100 : 100 }}
-      animate={{
-        opacity: 1,
-        y: 0,
-        transition: {
-          ...spring,
-          delay: (direction > 0 ? 0.3 : 0) + index * 0.05,
-        },
-      }}
-      className={
-        "w-max rounded-full text-lg text-text-primary bg-background-darkish-transparent p-2 text-center self-center"
-      }
-    >
-      <h6>{technology}</h6>
-    </motion.div>
-  ));
+  const initialDirection = direction > 0 ? "hiddenUp" : "hiddenDown";
+  const technologiesChips = technologies.map((technology, index) => {
+    // Calculates the offset for a normal or reversed stagger based on the direction
+    const staggerOffset =
+      (direction > 0 ? index : technologies.length - index) * 0.05;
+
+    return (
+      <motion.div
+        key={index}
+        drag
+        dragSnapToOrigin
+        dragTransition={dragSpring}
+        whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 1 }}
+        transition={spring}
+        variants={slideDirectionalVariants}
+        initial={initialDirection}
+        animate={"visible"}
+        custom={(direction > 0 ? 0.15 : 0) + staggerOffset}
+        className={
+          "w-max rounded-full text-lg text-text-primary bg-background-darkish-transparent p-2 text-center self-center"
+        }
+      >
+        <h6>{technology}</h6>
+      </motion.div>
+    );
+  });
 
   return (
     <AnimatePresence custom={direction} exitBeforeEnter>
@@ -77,13 +79,10 @@ export default function ProjectCard({
           }
         >
           <motion.div
-            initial={"hidden"}
+            initial={initialDirection}
             animate={"visible"}
-            custom={{
-              offset: direction > 0 ? 0 : 0.3,
-              direction,
-            }}
-            variants={slideDownVariants}
+            custom={direction > 0 ? 0 : 0.15}
+            variants={slideDirectionalVariants}
             className={"relative flex flex-row justify-between p-4"}
           >
             <InteractiveLink
@@ -94,13 +93,10 @@ export default function ProjectCard({
             <PrevNextControls current={current} setCurrent={setCurrent} />
           </motion.div>
           <motion.div
-            initial={"hidden"}
+            initial={initialDirection}
             animate={"visible"}
-            custom={{
-              offset: direction > 0 ? 0.1 : 0.2,
-              direction,
-            }}
-            variants={slideDownVariants}
+            custom={direction > 0 ? 0.05 : 0.1}
+            variants={slideDirectionalVariants}
             className={"relative w-full h-[23rem]"}
           >
             <Image
@@ -113,13 +109,10 @@ export default function ProjectCard({
             />
           </motion.div>
           <motion.div
-            initial={"hidden"}
+            initial={initialDirection}
             animate={"visible"}
-            custom={{
-              offset: direction > 0 ? 0.2 : 0.1,
-              direction,
-            }}
-            variants={slideDownVariants}
+            custom={direction > 0 ? 0.1 : 0.05}
+            variants={slideDirectionalVariants}
             className={"flex flex-row gap-4 p-4"}
           >
             <Info className={"fill-text-primary"} />

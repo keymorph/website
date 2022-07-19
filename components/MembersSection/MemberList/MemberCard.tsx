@@ -41,14 +41,19 @@ export default function MemberCard({
       dragTransition={dragSpring}
       layout={!draggingCard} // Only do layout animations when not dragging
       transition={spring}
-      whileDrag={{ scale: 1.1, cursor: "grabbing", zIndex: 1 }}
+      whileDrag={{
+        scale: 1.1,
+        cursor: "grabbing",
+        zIndex: 1,
+      }}
       initial={{ opacity: 0, y: -100 }}
       animate={{
         opacity: 1,
         zIndex: draggingCard ? 1 : 0,
         y: 0,
-        transition: { ...spring, delay: 0.4 + index * 0.05 }, // Added 0.4 offset to wait for the previous page sections to transition
+        transition: { ...spring, delay: 0.4 + index * 0.05 },
       }}
+      custom={0.4 + index * 0.05} // Added 0.4 offset to wait for the previous page sections to transition
       onDragStart={() => {
         setAlreadyDragging(true);
         setDraggingCard(true);

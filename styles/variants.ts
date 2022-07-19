@@ -21,13 +21,26 @@ export const projectCardPrevNextVariants = {
   },
 };
 
-export const slideDownVariants = {
-  hidden: ({ direction }: { direction: number }) => ({
+export const slideDirectionalVariants = {
+  hiddenDown: {
     opacity: 0,
-    y: direction > 0 ? -100 : 100,
-  }),
-  visible: ({ offset }: { offset: number }) => ({
+    y: 100,
+  },
+  hiddenUp: {
+    opacity: 0,
+    y: -100,
+  },
+  hiddenLeft: {
+    opacity: 0,
+    x: -100,
+  },
+  hiddenRight: {
+    opacity: 0,
+    x: 100,
+  },
+  visible: (offset: number) => ({
     opacity: 1,
+    x: 0,
     y: 0,
     transition: {
       ...spring,
