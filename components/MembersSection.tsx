@@ -12,9 +12,9 @@ export default function MembersSection() {
       initial={"hiddenLeft"}
       animate={"visible"}
       custom={0.3}
-      className="p-8"
+      className="sm:p-4 md:p-8"
     >
-      <h6 className="flex flex-row text-2xl gap-2 mb-4 items-center">
+      <h6 className="flex flex-row sm:text-lg md:text-xl lg:text-2xl gap-2 mb-4 items-center">
         <Groups className={"fill-text-primary"} />
         Who are we?
       </h6>

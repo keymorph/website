@@ -17,8 +17,8 @@ export default function MainHeader() {
   }, []);
 
   return (
-    <section className="p-8">
-      <motion.div
+    <section className="sm:p-4 md:p-8">
+      <motion.h1
         drag
         dragConstraints={{
           left: 0,
@@ -31,26 +31,27 @@ export default function MainHeader() {
         initial={"hiddenLeft"}
         animate={"visible"}
         custom={0.1}
+        className="sm:text-5xl md:text-6xl lg:text-8xl font-bold text-primary"
       >
-        <h1 className="text-8xl font-bold text-primary">Keymorph</h1>
-      </motion.div>
-      <motion.div
+        Keymorph
+      </motion.h1>
+      <motion.h5
         transition={spring}
         variants={slideDirectionalVariants}
         initial={"hiddenLeft"}
         animate={"visible"}
         custom={0.2}
-        className={"mt-10 text-4xl"}
+        className={
+          "sm:mt-5 md:mt-7 lg:mt-10 sm:text-xl md:text-2xl lg:text-4xl"
+        }
       >
-        <h5>
-          A micro development collective, <br />
-          focused on creating apps that are&nbsp;
-          <u>
-            <b>useful</b>
-          </u>
-          .
-        </h5>
-      </motion.div>
+        A micro development collective, <br />
+        focused on creating apps that are&nbsp;
+        <u>
+          <b>useful</b>
+        </u>
+        .
+      </motion.h5>
     </section>
   );
 }
