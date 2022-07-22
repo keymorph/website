@@ -20,8 +20,6 @@ export async function getKeymorphCommitsForMembers() {
       githubURL.length
     );
 
-    console.log(githubProjectName);
-
     let currentPage = 1;
     while (currentPage > 0) {
       const response = await fetch(
@@ -34,10 +32,8 @@ export async function getKeymorphCommitsForMembers() {
         });
 
       if (!response || response.length === 0) {
-        console.log("If: ", currentPage);
         currentPage = 0;
       } else {
-        console.log("Else: ", currentPage);
         for (const commit of response) {
           let commitURL = commit.author?.html_url;
           if (commitURL) {
@@ -55,6 +51,5 @@ export async function getKeymorphCommitsForMembers() {
     }
   }
 
-  console.log(commitsForGithubURLs);
   return commitsForGithubURLs;
 }
