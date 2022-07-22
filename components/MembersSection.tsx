@@ -3,8 +3,13 @@ import { spring } from "../styles/transitions";
 import Groups from "./Icons/Groups";
 import MemberList from "./MembersSection/MemberList";
 import { slideDirectionalVariants } from "../styles/variants";
+import { Member } from "../models";
 
-export default function MembersSection() {
+interface Props {
+  sortedMembers: Member[];
+}
+
+export default function MembersSection({ sortedMembers }: Props) {
   return (
     <motion.section
       transition={spring}
@@ -18,7 +23,7 @@ export default function MembersSection() {
         <Groups className={"fill-text-primary"} />
         Who are we?
       </h6>
-      <MemberList />
+      <MemberList sortedMembers={sortedMembers} />
     </motion.section>
   );
 }
