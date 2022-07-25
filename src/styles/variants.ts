@@ -1,21 +1,34 @@
 import { spring } from "./transitions";
 
 export const projectCardPrevNextVariants = {
-  enter: (direction: number) => {
+  hiddenY: (direction: number) => {
     return {
       y: direction > 0 ? -200 : 200,
       opacity: 0,
     };
   },
-  center: {
-    zIndex: 1,
+  hiddenX: (direction: number) => {
+    return {
+      x: direction > 0 ? -200 : 200,
+      opacity: 0,
+    };
+  },
+  visible: {
+    x: 0,
     y: 0,
     opacity: 1,
   },
-  exit: (direction: number) => {
+  exitY: (direction: number) => {
     return {
       zIndex: 0,
       y: direction < 0 ? -200 : 200,
+      opacity: 0,
+    };
+  },
+  exitX: (direction: number) => {
+    return {
+      zIndex: 0,
+      x: direction < 0 ? -200 : 200,
       opacity: 0,
     };
   },

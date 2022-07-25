@@ -8,7 +8,7 @@ interface Props {
   projectURL: string;
 }
 
-export default function LinkButton({
+export default function VisitButton({
   actionText,
   projectName,
   projectURL,
@@ -19,7 +19,7 @@ export default function LinkButton({
       whileTap={{ scale: 0.96 }}
       transition={spring}
       className={
-        "group flex flex-row gap-2 text-4xl px-4 py-2 items-center rounded-full bg-background-darkish-transparent"
+        "group flex flex-row gap-2 text-lg sm:text-2xl px-4 py-2 items-center rounded-full bg-background-darkish-transparent"
       }
       href={projectURL}
       target={"_blank"}
@@ -31,18 +31,14 @@ export default function LinkButton({
           "text-text-secondary group-hover:text-text-primary transition-colors duration-200 ease-in-out"
         }
       >
-        {actionText}
-      </div>
-      <div
-        className={
-          "text-text-secondary group-hover:text-primary transition-colors duration-200 ease-in-out"
-        }
-      >
-        <b>{projectName}</b>
+        {actionText}&nbsp;
+        <b className={"text-text-secondary group-hover:text-primary"}>
+          {projectName}
+        </b>
       </div>
       <OpenInNew
         className={
-          "fill-text-secondary group-hover:fill-text-primary transition-fill duration-200 ease-in-out"
+          "w-4 sm:w-6 fill-text-secondary group-hover:fill-text-primary transition-fill duration-200 ease-in-out"
         }
       />
     </motion.a>

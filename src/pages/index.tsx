@@ -14,7 +14,7 @@ export default function Home({ sortedMembers }: Props) {
     <div
       className={"relative text-text-primary min-h-screen w-screen select-none"}
     >
-      <section className="flex sm:flex-col xl:flex-row justify-between gap-24 pb-20 overflow-x-hidden min-h-screen">
+      <section className="flex flex-col xl:flex-row justify-between gap-24 pb-20 overflow-x-hidden min-h-screen">
         <section className="flex flex-col">
           <MainHeader />
           <MembersSection sortedMembers={sortedMembers} />

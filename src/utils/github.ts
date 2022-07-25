@@ -26,12 +26,9 @@ export async function getKeymorphCommitsForMembers() {
         `https://api.github.com/repos/FourScript/${githubProjectName}/commits?page=${currentPage}&per_page=100`
       )
         .then((r) => r.json())
-        .catch((e) => {
-          console.error(e.message);
-          return [];
-        });
+        .catch((e) => console.error(e.message));
 
-      if (!response || response.length === 0) {
+      if (!response || response.length === 0 || response.message) {
         currentPage = 0;
       } else {
         for (const commit of response) {

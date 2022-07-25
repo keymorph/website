@@ -6,6 +6,7 @@ import Github from "../../Icons/Github";
 import { motion } from "framer-motion";
 import { dragSpring, spring } from "../../../styles/transitions";
 import { useState } from "react";
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 interface Props {
   index?: number;
@@ -28,15 +29,18 @@ export default function MemberCard({
   alreadyDragging,
   setAlreadyDragging,
 }: Props) {
+  //#region Hooks
+  const isMobile = useMediaQuery("(max-width: 600px)");
+  //#endregion
   const [draggingCard, setDraggingCard] = useState(false);
 
   const clickableLinks = [websiteURL, githubURL, linkedinURL];
   const clickableLinkClassName =
-    "fill-text-secondary hover:fill-text-primary transition-fill duration-200 ease-in-out";
+    "w-10 fill-text-secondary hover:fill-text-primary transition-fill duration-200 ease-in-out";
 
   return (
     <motion.div
-      drag={!alreadyDragging || draggingCard}
+      drag={(!alreadyDragging || draggingCard) && !isMobile}
       dragSnapToOrigin
       dragTransition={dragSpring}
       layout={!draggingCard} // Only do layout animations when not dragging
@@ -67,7 +71,7 @@ export default function MemberCard({
     >
       <Card
         className={
-          "w-80 bg-background-dark-transparent overflow-hidden shadow-strong select-none"
+          "min-w-[12rem] max-w-[20rem] max-w-10 bg-background-dark-transparent overflow-hidden shadow-strong select-none"
         }
       >
         <div
@@ -83,7 +87,8 @@ export default function MemberCard({
             width={"400"}
             height={"100%"}
             className={"rounded-2xl object-cover"}
-            alt={"Linkedin image of Raciel Antela Pardo"}
+            alt={"Linkedin image of " + name}
+            priority
             draggable={false}
           />
           <div className={"flex flex-col gap-4 justify-center"}>

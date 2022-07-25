@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { slideDirectionalVariants } from "../styles/variants";
 
 export default function MainHeader() {
+  //#region Hooks
   const [windowDimensions, setWindowDimensions] = useState({
     width: 0,
     height: 0,
@@ -15,9 +16,9 @@ export default function MainHeader() {
       height: document.documentElement.scrollHeight,
     });
   }, []);
-
+  //#endregion
   return (
-    <section className="sm:p-4 md:p-8">
+    <section className="p-4 md:p-8">
       <motion.h1
         drag
         dragConstraints={{
@@ -31,7 +32,7 @@ export default function MainHeader() {
         initial={"hiddenLeft"}
         animate={"visible"}
         custom={0.1}
-        className="sm:text-5xl md:text-6xl lg:text-8xl font-bold text-primary"
+        className="text-5xl md:text-6xl lg:text-8xl font-bold text-primary"
       >
         Keymorph
       </motion.h1>
@@ -41,9 +42,7 @@ export default function MainHeader() {
         initial={"hiddenLeft"}
         animate={"visible"}
         custom={0.2}
-        className={
-          "sm:mt-5 md:mt-7 lg:mt-10 sm:text-xl md:text-2xl lg:text-4xl"
-        }
+        className={"mt-4 md:mt-6 lg:mt-10 sm:text-xl md:text-2xl lg:text-4xl"}
       >
         A micro development collective, <br />
         focused on creating apps that are&nbsp;

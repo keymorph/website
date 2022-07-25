@@ -1,19 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
-      sm: "320px",
+      sm: "600px",
       md: "720px",
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
     },
     colors: {
-      // Need to define a global color scheme for all apps
       primary: "#C7BCF6",
       error: "#FF5B52",
       warning: "#F1C64D",
