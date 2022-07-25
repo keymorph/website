@@ -9,30 +9,32 @@ interface Props {
   sortedMembers: Member[];
 }
 
-export default function Home({sortedMembers}: Props) {
+export default function Home({ sortedMembers }: Props) {
   return (
     <div
       className={"relative text-text-primary min-h-screen w-screen select-none"}
     >
       <section className="flex sm:flex-col xl:flex-row justify-between gap-24 pb-20 overflow-x-hidden min-h-screen">
         <section className="flex flex-col">
-          <MainHeader/>
-          <MembersSection sortedMembers={sortedMembers}/>
+          <MainHeader />
+          <MembersSection sortedMembers={sortedMembers} />
         </section>
-        <ProjectsSection/>
+        <ProjectsSection />
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const commits = await getKeymorphCommitsForMembers();
+  const isProduction = process.env.NODE_ENV === "production";
+  const commits = isProduction ? await getKeymorphCommitsForMembers() : [];
   const membersWithCommits = members.map((member) => ({
     ...member,
-    commitCount:
-    commits[commits.findIndex((commit) => commit.url === member.githubURL)]
-      .commitCount,
+    commitCount: isProduction
+      ? commits[commits.findIndex((commit) => commit.url === member.githubURL)]
+          .commitCount
+      : 0,
   }));
   const sortedMembers = membersWithCommits.sort(
     (a, b) => b.commitCount - a.commitCount
@@ -42,6 +44,6 @@ export async function getStaticProps() {
     props: {
       sortedMembers,
     },
-    revalidate: 3600, // At least these many seconds will pass until the page is revalidated
+    revalidate: 18000, // At least these many seconds will pass until the page is revalidated with the new static props
   };
 }
