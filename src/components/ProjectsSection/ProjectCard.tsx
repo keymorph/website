@@ -79,7 +79,7 @@ export default function ProjectCard({
     <AnimatePresence custom={direction} exitBeforeEnter>
       <motion.div
         // By passing an absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
-        // detect it as an entirely new image.
+        // detect it as an entirely new element.
         key={current}
         transition={springShort}
         variants={projectCardPrevNextVariants}
@@ -90,7 +90,7 @@ export default function ProjectCard({
       >
         <Card
           className={
-            "w-full max-w-[32rem] xl:min-w-[32rem] h-full bg-background-dark-transparent overflow-hidden shadow-strong select-none"
+            "w-full max-w-[32rem] sm:min-w-[32rem] bg-background-dark-transparent overflow-hidden shadow-strong select-none"
           }
         >
           <motion.div

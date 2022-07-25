@@ -12,13 +12,13 @@ interface Props {
 export default function Home({ sortedMembers }: Props) {
   return (
     <div
-      className={"relative text-text-primary min-h-screen w-screen select-none"}
+      className={
+        "relative text-text-primary min-h-screen w-screen overflow-x-hidden select-none"
+      }
     >
-      <section className="flex flex-col xl:flex-row justify-between gap-24 pb-20 overflow-x-hidden min-h-screen">
-        <section className="flex flex-col">
-          <MainHeader />
-          <MembersSection sortedMembers={sortedMembers} />
-        </section>
+      <MainHeader />
+      <section className="flex flex-col xl:flex-row justify-between gap-24 pb-20 min-h-full">
+        <MembersSection sortedMembers={sortedMembers} />
         <ProjectsSection />
       </section>
       <Footer />
