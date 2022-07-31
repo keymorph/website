@@ -34,7 +34,9 @@ export default function MemberCard({
   //#endregion
   const [draggingCard, setDraggingCard] = useState(false);
 
-  const clickableLinks = [websiteURL, githubURL, linkedinURL];
+  const clickableLinks = [websiteURL, githubURL, linkedinURL].filter(
+    (url) => url !== ""
+  );
   const clickableLinkClassName =
     "w-10 fill-text-secondary hover:fill-text-primary transition-fill duration-200 ease-in-out";
 
@@ -81,17 +83,17 @@ export default function MemberCard({
         >
           <p className="font-bold text-lg">{name}</p>
         </div>
-        <div className={"flex flex-row gap-4 px-4 py-4"}>
+        <div className={"flex flex-row gap-4 px-4 py-4 items-center"}>
           <Image
             src={imageURL}
             width={"400"}
-            height={"100%"}
+            height={"300"}
             className={"rounded-2xl object-cover"}
             alt={"Linkedin image of " + name}
             priority
             draggable={false}
           />
-          <div className={"flex flex-col gap-4 justify-center"}>
+          <div className={"flex flex-col gap-4"}>
             {clickableLinks.map((link, index) => (
               <motion.a
                 key={index}
@@ -101,6 +103,7 @@ export default function MemberCard({
                 href={link}
                 target={"_blank"}
                 rel="noreferrer"
+                style={{ display: "flex" }}
               >
                 {link === websiteURL && (
                   <Website className={clickableLinkClassName} />
