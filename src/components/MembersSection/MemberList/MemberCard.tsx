@@ -84,15 +84,17 @@ export default function MemberCard({
           <p className="font-bold text-lg">{name}</p>
         </div>
         <div className={"flex flex-row gap-4 px-4 py-4 items-center"}>
-          <Image
-            src={imageURL}
-            width={"400"}
-            height={"300"}
-            className={"rounded-2xl object-cover"}
-            alt={"Linkedin image of " + name}
-            priority
-            draggable={false}
-          />
+          <div className={"relative w-52 h-40"}>
+            <Image
+              src={imageURL}
+              layout={"fill"}
+              objectFit={"cover"}
+              className={"rounded-2xl"}
+              alt={"Picture of " + name}
+              priority
+              draggable={false}
+            />
+          </div>
           <div className={"flex flex-col gap-4"}>
             {clickableLinks.map((link, index) => (
               <motion.a

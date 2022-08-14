@@ -36,7 +36,6 @@ export default function ProjectCard({
 }: Props) {
   //#region Hooks
   const isDesktop = useMediaQuery("(min-width: 1280px)");
-  const isMobile = useMediaQuery("(max-width: 600px)");
   //#endregion
 
   let [initialDirection, exitDirection, initialContentDirection] = ["", "", ""];
@@ -112,14 +111,13 @@ export default function ProjectCard({
             animate={"visible"}
             custom={direction > 0 ? 0.05 : 0.1}
             variants={slideDirectionalVariants}
+            className={"relative w-full h-[55vw] sm:h-[21.5rem]"}
           >
             <Image
               src={imageURL}
               alt={"Note taking web application"}
-              width="100%"
-              height="70%"
-              layout={"responsive"}
-              objectFit={"contain"}
+              layout={"fill"}
+              objectFit={"cover"}
               priority
               className={"pointer-events-none"}
             />

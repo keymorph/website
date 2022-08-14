@@ -25,8 +25,7 @@ export const members = [
   },
   {
     name: "Evan",
-    imageURL:
-      "https://media-exp1.licdn.com/dms/image/D4D35AQGxQZblzNF-xA/profile-framedphoto-shrink_200_200/0/1621232916734?e=1658620800&v=beta&t=MGkWB_yRn53lyyPtJMOML2XKJDLF9ceE3znWs2bRd1U",
+    imageURL: "/images/members/evan.png",
     websiteURL: "https://www.ecn.dev",
     githubURL: "https://github.com/EvanCNavarro",
     linkedinURL: "https://www.linkedin.com/in/EvanCNavarro",
@@ -55,8 +54,7 @@ export const members = [
   },
   {
     name: "Tevin",
-    imageURL:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQHAPEWJLk_N6g/profile-displayphoto-shrink_200_200/0/1623943350006?e=1663200000&v=beta&t=_NcKivA3-9pTTzLbxjeIXchvEGry0XAQoguNimaPoXk",
+    imageURL: "/images/members/tevin.jpg",
     websiteURL: "",
     githubURL: "https://github.com/Blarsu",
     linkedinURL: "https://www.linkedin.com/in/TevinRose",
