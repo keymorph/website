@@ -9,16 +9,14 @@ export interface Member {
 export const members = [
   {
     name: "Danny",
-    imageURL:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQHXhopUdvvKWA/profile-displayphoto-shrink_200_200/0/1621892753632?e=1663200000&v=beta&t=AKD9qfLhQca7ErgcPEa5i7p9aWes-594ocOSgRHbSc8",
+    imageURL: "/images/members/danny.jpg",
     websiteURL: "",
     githubURL: "https://github.com/dsanchez212",
     linkedinURL: "https://www.linkedin.com/in/sanchez-a-daniel/",
   },
   {
     name: "Dante",
-    imageURL:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQGC9nQX_myHvg/profile-displayphoto-shrink_200_200/0/1633033125111?e=1663200000&v=beta&t=h-nAeaUvzgk9MECqPLmBPjBP6_TCXzl1-Nw73k9hd4M",
+    imageURL: "/images/members/dante.jpg",
     websiteURL: "https://www.danteedmonson.com",
     githubURL: "https://github.com/danteedmonson",
     linkedinURL: "https://www.linkedin.com/in/DanteEdmonson",
@@ -46,8 +44,7 @@ export const members = [
   },
   {
     name: "Rich",
-    imageURL:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQGKBegupxV1cQ/profile-displayphoto-shrink_200_200/0/1617722355590?e=1663200000&v=beta&t=0SAUzy_3oHMohF4WOqHjwC6YxPC3htlSdh6MH3YMgL4",
+    imageURL: "/images/members/rich.jpg",
     websiteURL: "",
     githubURL: "https://github.com/MorandR",
     linkedinURL: "https://www.linkedin.com/in/richard-m-7a5235208",
