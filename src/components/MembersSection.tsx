@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { spring } from "../styles/transitions";
 import MemberList from "./MembersSection/MemberList";
 import { slideDirectionalVariants } from "../styles/variants";
-import { Member } from "../models";
+import { Member } from "../data";
 import Groups from "./Icons/Groups";
 
 interface Props {

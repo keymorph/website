@@ -2,7 +2,7 @@ export const projects = [
   {
     actionText: "Visit",
     projectName: "Notes",
-    projectURL: "https://jotfoxdev.vercel.app",
+    projectURL: "https://notes.keymorph.com",
     githubURL: "https://github.com/Fourscript/notetakingapp",
     imageURL: "/images/projects/notes.png",
     description:
@@ -18,7 +18,7 @@ export const projects = [
   {
     actionText: "Visit",
     projectName: "Homepage",
-    projectURL: "https://example.com",
+    projectURL: "https://keymorph.com",
     githubURL: "https://github.com/Fourscript/landing-page",
     imageURL: "/images/projects/homepage.png",
     description: "Our homepage for showcasing members and projects.",

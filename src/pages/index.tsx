@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import ProjectsSection from "../components/ProjectsSection";
 import MembersSection from "../components/MembersSection";
 import { getKeymorphCommitsForMembers } from "../utils";
-import { Member, members } from "../models";
+import { Member, members } from "../data";
 
 interface Props {
   sortedMembers: Member[];

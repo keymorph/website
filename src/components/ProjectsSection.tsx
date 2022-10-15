@@ -4,7 +4,7 @@ import { wrap } from "popmotion";
 import ProjectCard from "./ProjectsSection/ProjectCard";
 import { spring } from "../styles/transitions";
 import { slideDirectionalVariants } from "../styles/variants";
-import { projects } from "../models";
+import { projects } from "../data";
 import Carousel from "./Icons/Carousel";
 
 export default function ProjectsSection() {

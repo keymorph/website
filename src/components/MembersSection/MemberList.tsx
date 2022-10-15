@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MemberCard from "./MemberList/MemberCard";
-import { Member } from "../../models";
+import { Member } from "../../data";
 
 interface Props {
   sortedMembers: Member[];

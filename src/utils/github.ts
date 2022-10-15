@@ -1,5 +1,5 @@
 // Add githubURL to members
-import { members, projects } from "../models";
+import { members, projects } from "../data";
 
 export async function getKeymorphCommitsForMembers() {
   let commitsForGithubURLs = members.map((member) => {
